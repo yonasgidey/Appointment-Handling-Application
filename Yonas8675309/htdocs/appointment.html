@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	 <title>Appointments</title>
+	
+    <link rel="stylesheet" href="styles/appointment_Style.css">
+	<link href = "styles/jquery-ui.css"  rel = "stylesheet">
+	<link rel='stylesheet' type='text/css'href='styles/timepicker.css'/>
+
+	
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+	<script src="scripts/appointment_Script.js"></script>
+	
+	<script src = "scripts/jquery-1.10.2.js"></script>
+    <script src = "scripts/jquery-ui.js"></script>
+	<script type='text/javascript'src='scripts/timepicker.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+		<div class="heading1"><h1>Appointment Handling Application</h1></div> 
+				<ul class="error-list">
+
+                </ul>
+            <button id="new-button" class="button success new">New</button>
+            <form id="new-form" METHOD="POST" ACTION ="add_NewAppointment.pl"  class="new hidden">
+				
+                <button class="button success add" type="submit">Add</button>
+                <button id="cancel-button" class="button danger cancel">Cancel</button> <br/>
+			<div>	
+			<label>
+            <span class="inputspan">Appointment Date</span>
+                    <input type="text" name="appointment_Date"class="text-input" id="datepicker-12" placeholder="Date"> 
+		 </label>
+             <label>
+            <span class="inputspan">Appointment Time</span>
+			       <input type="text" name="appointment_Time" class="text-input" id="timepicker"  placeholder="Time"> 
+			</label> 
+			
+			<label>
+            <span class="inputspan">Description</span>
+			
+			<input type="text" name="appointment_Description" class="text-input" placeholder="Description"> 
+			
+			</label> 
+			
+			</div> 	
+				
+            </form>
+			
+			
+        </div>
+		
+        <div class="search-container">
+            <form id="search-form" METHOD="GET" action="search_SavedAppointment.pl" >
+			<input id="search-term" type="text" name="search" class="text-input" placeholder="Enter Search Query">
+			
+                <button id="search-button" class="button regular search" type="submit">Search</button>
+
+            </form>
+        </div>
+        <div class="appointments-container">
+           <div class="heading2"> <h2>Appointments List</h2></div>
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Appointment Date</th>
+                        <th>Appointment Time</th>
+                        <th>Appointment Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+	
+	<!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-12" ).datepicker({minDate: 0});
+            $( "#datepicker-12" ).datepicker("setDate", new Date());
+         });
+		 
+		 $('#timepicker').timepicki(); 
+      </script>
+	
+	
+	
+</body>
+
+</html>
